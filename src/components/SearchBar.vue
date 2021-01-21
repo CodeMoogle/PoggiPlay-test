@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
 	name: "SearchBar",
 	data() {
@@ -21,8 +22,9 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(["fetchQuery"]),
 		getSearchQuery() {
-			/* make query */
+			this.fetchQuery(this.searchTitle);
 			this.searchTitle = "";
 		},
 	},
