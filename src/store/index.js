@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		packages: {},
+		packages: [],
 		isLoading: false,
 		currentPackage: {},
 	},
@@ -27,7 +27,7 @@ export default new Vuex.Store({
 
 			try {
 				await axios.get(`${API_URL.searchUrl(querytext)}`).then(res => {
-					commit('fetchPackages', res.data)
+					commit('fetchPackages', res.data.objects)
 					commit('setLoading', false)
 				})
 			} catch (error) {

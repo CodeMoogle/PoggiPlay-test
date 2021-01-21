@@ -24,7 +24,7 @@ export default {
 	methods: {
 		...mapActions(["fetchQuery"]),
 		getSearchQuery() {
-			this.fetchQuery(this.searchTitle);
+			this.fetchQuery(this.searchTitle.trim());
 			this.searchTitle = "";
 		},
 	},
